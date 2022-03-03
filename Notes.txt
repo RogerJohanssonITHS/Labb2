@@ -1,0 +1,10 @@
+Utveckla ett REST API
+
+Gör REST API-specifikation först
+
+Listan med "Grundläggande krav" skall gå att göra på klient-sidan
+
+Inga krav på inloggning finns
+
+GitHub-Classroom för repo.
+SQL-databas (database first); en backup skall också lämnas in.
