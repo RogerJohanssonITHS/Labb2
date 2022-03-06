@@ -8,3 +8,9 @@ Inga krav på inloggning finns
 
 GitHub-Classroom för repo.
 SQL-databas (database first); en backup skall också lämnas in.
+
+Vad skall göras?
+REST API-specifikation där de "Grundläggande krav" tas om hand.
+Hur skall REST API-specifikation skrivas?
+
+
