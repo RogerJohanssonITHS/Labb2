@@ -13,4 +13,8 @@ Vad skall göras?
 REST API-specifikation där de "Grundläggande krav" tas om hand.
 Hur skall REST API-specifikation skrivas?
 
+1. Skriv Minimal API
+2. Databas med ER-diagram.
+3. ASP.net core web app (Razor)
+4. Entity Framework? Nuget. Database first (SQL).
 
