@@ -16,7 +16,32 @@ Hur skall REST API-specifikation skrivas?
 1. Skriv Minimal API
  - använd "tillfällig" databas
  - ställ frågor via postman för att kontrollera resultaten
-2. Databas med ER-diagram.
+2. (Databas med ER-diagram.)
 3. ASP.net core web app (Razor)
 4. Entity Framework? Nuget. Database first (SQL).
 
+
+
+1. Skriv Minimal API
+ - använd "tillfällig" databas
+ - ställ frågor via postman för att kontrollera resultaten
+ 
+2. (ASP.net core web app (Razor). Lyft in API.)
+ 
+3. Entity Framework. Nuget. Code first (SQL). Jfr. ControllerRestDemo.
+ - Kan man lyfta in razor pages till projektet?
+ - När görs migration? Populera databasen?
+ - one student - many courses. One to many relation.
+__________________________________________________________
+
+4. ControllerRestDemo med Unit of Work. "facit"
+ - lyfta in razor pages?
+ - css i Razor pages; footer ligger inte längst ner
+ - lyfta in från RestAPI_students_courses
+__________________________________________________________
+
+ 
+5. WestCoast_Razor_API
+ - sätt iordning API-delen
+ - sätt upp modellerna i DAL
+ - database migration
