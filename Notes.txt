@@ -38,6 +38,9 @@ __________________________________________________________
  - lyfta in razor pages?
  - css i Razor pages; footer ligger inte längst ner
  - lyfta in från RestAPI_students_courses
+ - sätt iordning API-delen
+ - sätt upp modellerna i DAL
+ - database migration
 __________________________________________________________
 
  
