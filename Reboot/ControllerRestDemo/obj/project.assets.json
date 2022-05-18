@@ -2061,11 +2061,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\linda\\OneDrive\\Skrivbord\\current projects\\ITHS\\Webkurs_VT22\\Reboot\\ControllerRestDemo\\ControllerRestDemo.csproj",
+      "projectUniqueName": "C:\\Users\\linda\\OneDrive\\Skrivbord\\current projects\\ITHS\\Webkurs_VT22\\Labb2\\Reboot\\ControllerRestDemo\\ControllerRestDemo.csproj",
       "projectName": "ControllerRestDemo",
-      "projectPath": "C:\\Users\\linda\\OneDrive\\Skrivbord\\current projects\\ITHS\\Webkurs_VT22\\Reboot\\ControllerRestDemo\\ControllerRestDemo.csproj",
+      "projectPath": "C:\\Users\\linda\\OneDrive\\Skrivbord\\current projects\\ITHS\\Webkurs_VT22\\Labb2\\Reboot\\ControllerRestDemo\\ControllerRestDemo.csproj",
       "packagesPath": "C:\\Users\\linda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\linda\\OneDrive\\Skrivbord\\current projects\\ITHS\\Webkurs_VT22\\Reboot\\ControllerRestDemo\\obj\\",
+      "outputPath": "C:\\Users\\linda\\OneDrive\\Skrivbord\\current projects\\ITHS\\Webkurs_VT22\\Labb2\\Reboot\\ControllerRestDemo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\linda\\AppData\\Roaming\\NuGet\\NuGet.Config",

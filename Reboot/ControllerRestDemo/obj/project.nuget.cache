@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cIlrV/OIxmCKarjwv9lOHq1FzT3BsE3E+9qX3MpZ9fdAaxaPv2V8pcq/6/TeaXoV3s0c0RD4oednCCryOFHE9w==",
+  "dgSpecHash": "ZgkQGvy5PDXbMl3JG6cK6/bG8I1saSLJsF94iORLP6WqCAIoYMNrxvNJckHMaY1vExxJxOeCheKV2OjoIzliLA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\linda\\OneDrive\\Skrivbord\\current projects\\ITHS\\Webkurs_VT22\\Reboot\\ControllerRestDemo\\ControllerRestDemo.csproj",
+  "projectFilePath": "C:\\Users\\linda\\OneDrive\\Skrivbord\\current projects\\ITHS\\Webkurs_VT22\\Labb2\\Reboot\\ControllerRestDemo\\ControllerRestDemo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\linda\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\linda\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
