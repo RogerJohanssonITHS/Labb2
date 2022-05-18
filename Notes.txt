@@ -38,9 +38,15 @@ __________________________________________________________
  - lyfta in razor pages?
  - css i Razor pages; footer ligger inte längst ner
  - lyfta in från RestAPI_students_courses
+   - user blir student
+   - dubbla alla för courses! (Controllers, DAL)
+
  - sätt iordning API-delen
- - sätt upp modellerna i DAL
+   - görs i Controllers för students och courses
+ (- sätt upp modellerna i DAL)
  - database migration
+ 
+ - https://www.entityframeworktutorial.net/efcore/entity-framework-core-dbcontext.aspx
 __________________________________________________________
 
  
