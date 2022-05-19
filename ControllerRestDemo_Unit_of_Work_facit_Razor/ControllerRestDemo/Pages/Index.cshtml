@@ -8,3 +8,62 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <h3>Add Course</h3>
+    <form method="post" asp-page="index">
+        <table cellpadding="2" cellspacing="2">
+            <tr>
+                <td>Nummer</td>
+                <td>
+                    <input type="text" asp-for="course.CourseNumber" />
+                </td>
+            </tr>
+            <tr>
+                <td>Namn</td>
+                <td>
+                    <input type="text" asp-for="course.CourseName" />
+                </td>
+            </tr>
+            <tr>
+                <td>Beskrivning</td>
+                <td>
+                    <input type="text" asp-for="course.CourseDescription" />
+                </td>
+            </tr>
+            <tr>
+                <td>Längd</td>
+                <td>
+                    <input type="text" asp-for="course.CourseLength" />
+                </td>
+            </tr>
+            <tr>
+                <td>Nivå</td>
+                <td>
+                    <input type="text" asp-for="course.CourseLevel" />
+                </td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td>
+                    <input type="checkbox" asp-for="course.CourseStatus" />
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" value="Save" />
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>

@@ -1,20 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ControllerRestDemo.DAL;
+using ControllerRestDemo.DAL.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Razor_from_this.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private StudentContext _studentContext;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        [BindProperty]
+        public Course course { get; set; }
+
+        public IndexModel(StudentContext studentContext)
         {
-            _logger = logger;
+            _studentContext = studentContext;
         }
 
         public void OnGet()
         {
+            course = new Course();
+        }
 
+        public void OnPost()
+        {
+            _studentContext.Courses.Add(course);
+            _studentContext.SaveChanges();
         }
     }
 }
