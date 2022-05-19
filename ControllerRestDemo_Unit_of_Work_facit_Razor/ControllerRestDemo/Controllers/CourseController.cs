@@ -39,9 +39,15 @@ namespace ControllerRestDemo.Controllers
         [HttpPost]
         public IResult Post([FromBody] Course course)
         {
-            _unitOfWork.CourseRepository.Create(course);
-            _unitOfWork.Save();
-            return Results.Ok();
+            var courseExists = _unitOfWork.CourseRepository.GetCourse(course.CourseNumber);
+            if (courseExists==null)
+            {
+                _unitOfWork.CourseRepository.Create(course);
+                _unitOfWork.Save();
+                return Results.Ok();
+            }
+            else return Results.BadRequest();
+
         }
 
         //retires course
