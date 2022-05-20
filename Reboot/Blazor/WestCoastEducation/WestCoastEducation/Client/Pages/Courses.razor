@@ -1,0 +1,74 @@
+﻿@page "/fetchherodata"
+@using Microsoft.AspNetCore.Components
+@using System.Net.Http.Json
+@using WestCoastEducation.Shared
+
+@inject HttpClient _httpClient
+
+<h1>Heroes Page</h1>
+
+<p>Add another Hero:</p>
+
+<p>
+    <input @bind="Hero.Name"/>
+</p>
+
+<p>
+    <input @bind="Hero.HeroName"/>
+</p>
+<p>
+    <input @bind="Hero.Powers"/>
+</p>
+<button class="btn btn-primary" @onclick="AddHeroAsync">Add Hero</button>
+
+<p>These are our heroes.</p>
+
+@if (_courses == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Hero Name</th>
+            <th>Powers</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var course in _courses)
+        {
+            <tr>
+                <td>@course.Id</td>
+                <td>@course.CourseNumber</td>
+                <td>@course.CourseName</td>
+                <td>@course.CourseDescription</td>
+                <td>@course.CourseLength</td>
+                <td>@course.CourseLevel</td>
+                <td>@course.CourseStatus</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+@code {
+
+    public Course course { get; set; } = new();
+
+    private ICollection<Course>? _courses;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await _httpClient.GetFromJsonAsync<ICollection<Course>>("api/Course");
+        _courses = result;
+    }
+
+        protected async Task AddHeroAsync()
+    {
+        
+    }
+}
+
