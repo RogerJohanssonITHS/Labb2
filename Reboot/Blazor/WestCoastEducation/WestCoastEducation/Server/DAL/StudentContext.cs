@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WestCoastEducation.Shared;
 
-namespace ControllerRestDemo.Server.DAL
+namespace WestCoastEducation.Server.DAL
 {
     public class StudentContext : DbContext
     {

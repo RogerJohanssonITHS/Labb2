@@ -1,6 +1,7 @@
-﻿using WestCoastEducation.Shared;
+﻿using Microsoft.EntityFrameworkCore;
+using WestCoastEducation.Shared;
 
-namespace ControllerRestDemo.Server.DAL
+namespace WestCoastEducation.Server.DAL
 {
     public class CourseRepository : ICourseRepository, IDisposable
     {
@@ -23,6 +24,12 @@ namespace ControllerRestDemo.Server.DAL
         public ICollection<Course> GetAllCourses()
         {
             return _studentContext.Courses.ToList();
+        }
+
+        public async Task<ICollection<Course>> GetAllCoursesAsync()
+        {
+            var courses = _studentContext.Courses;
+            return await courses.ToListAsync();
         }
 
         public Course? GetCourse(int id)

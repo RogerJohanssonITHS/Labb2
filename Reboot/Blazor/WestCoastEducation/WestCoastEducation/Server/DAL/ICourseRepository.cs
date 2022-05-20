@@ -1,6 +1,6 @@
 ﻿using WestCoastEducation.Shared;
 
-namespace ControllerRestDemo.Server.DAL;
+namespace WestCoastEducation.Server.DAL;
 
 public interface ICourseRepository : IDisposable
 {

@@ -27,5 +27,17 @@
         {
             Students = new HashSet<Student>();
         }
+
+        public static Course CopyCourse(Course course)
+        {
+            var courseCopy = new Course();
+            courseCopy.CourseNumber = course.CourseNumber;
+            courseCopy.CourseName = course.CourseName;
+            courseCopy.CourseDescription = course.CourseDescription;
+            courseCopy.CourseLength = course.CourseLength;
+            courseCopy.CourseLevel = course.CourseLevel;
+            courseCopy.CourseStatus = course.CourseStatus;
+            return courseCopy;
+        }
     }
 }

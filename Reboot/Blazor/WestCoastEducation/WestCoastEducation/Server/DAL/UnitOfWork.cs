@@ -1,4 +1,4 @@
-﻿namespace ControllerRestDemo.Server.DAL
+﻿namespace WestCoastEducation.Server.DAL
 {
     public class UnitOfWork : IDisposable
     {

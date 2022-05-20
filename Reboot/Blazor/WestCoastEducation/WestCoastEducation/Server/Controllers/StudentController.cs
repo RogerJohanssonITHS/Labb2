@@ -1,10 +1,10 @@
-﻿using ControllerRestDemo.Server.DAL;
+﻿using WestCoastEducation.Server.DAL;
 using Microsoft.AspNetCore.Mvc;
 using WestCoastEducation.Shared;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace ControllerRestDemo.Server.Controllers
+namespace WestCoastEducation.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

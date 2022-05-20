@@ -1,8 +1,8 @@
 ﻿@page "/courses"
-
+@using WestCoastEducation.Shared
 
 @inject HttpClient HttpClient
-<PageTitle>Counter</PageTitle>
+<PageTitle>Kurser</PageTitle>
 <h1>Kurser på WCE</h1>
 
 <p>Lägg till kurs</p>
@@ -40,9 +40,12 @@ else
         <thead>
         <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Hero Name</th>
-            <th>Powers</th>
+            <th>Kursnummer</th>
+            <th>Kursnamn</th>
+            <th>Kursbeskrivning</th>
+            <th>Kurslängd</th>
+            <th>Kursnivå</th>
+            <th>Kursstatus</th>
         </tr>
         </thead>
         <tbody>
@@ -73,9 +76,13 @@ else
         _courses = result;
     }
 
-        protected async Task AddCourseAsync()
+    private async Task AddCourseAsync()
     {
-        
+        var newCourse = Course.CopyCourse(Course);
+
+        var result = await HttpClient.PostAsJsonAsync("api/Course", newCourse);
+
+        await GetAllCoursesAsync();
     }
 }
 
