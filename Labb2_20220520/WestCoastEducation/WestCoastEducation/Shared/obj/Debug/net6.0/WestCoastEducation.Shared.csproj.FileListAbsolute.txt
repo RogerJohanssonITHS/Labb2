@@ -1,0 +1,12 @@
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Shared\bin\Debug\net6.0\WestCoastEducation.Shared.deps.json
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Shared\bin\Debug\net6.0\WestCoastEducation.Shared.dll
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Shared\bin\Debug\net6.0\WestCoastEducation.Shared.pdb
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Shared\obj\Debug\net6.0\WestCoastEducation.Shared.csproj.AssemblyReference.cache
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Shared\obj\Debug\net6.0\WestCoastEducation.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Shared\obj\Debug\net6.0\WestCoastEducation.Shared.AssemblyInfoInputs.cache
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Shared\obj\Debug\net6.0\WestCoastEducation.Shared.AssemblyInfo.cs
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Shared\obj\Debug\net6.0\WestCoastEducation.Shared.csproj.CoreCompileInputs.cache
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Shared\obj\Debug\net6.0\WestCoastEducation.Shared.dll
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Shared\obj\Debug\net6.0\refint\WestCoastEducation.Shared.dll
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Shared\obj\Debug\net6.0\WestCoastEducation.Shared.pdb
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Shared\obj\Debug\net6.0\ref\WestCoastEducation.Shared.dll

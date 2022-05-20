@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.EntityFrameworkCore;
+using WestCoastEducation.Server.DAL;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddDbContext<CourseContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("WCEConnectionString"));
+});
+
+builder.Services.AddScoped<CourseRepository>();
+builder.Services.AddScoped<StudentRepository>();
 
 var app = builder.Build();
 
