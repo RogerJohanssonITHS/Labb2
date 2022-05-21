@@ -31,12 +31,23 @@ namespace WestCoastEducation.Shared
         [System.Text.Json.Serialization.JsonIgnore]
         public virtual ICollection<Course> Courses { get; set; }
 
-
-
         public Student()
         {
             Courses = new HashSet<Course>();
         }
+        public static Student CopyStudent(Student student)
+        {
+            var studentCopy = new Student();
+            studentCopy.FirstName = student.FirstName;
+            studentCopy.LastName = student.LastName;
+            studentCopy.Email = student.Email;
+            studentCopy.PhoneNr = student.PhoneNr;
+            studentCopy.Street = student.Street;
+            studentCopy.PostalCode = student.PostalCode;
+            studentCopy.City = student.City;
+            return studentCopy;
+        }
+
     }
 }
 

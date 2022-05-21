@@ -1,0 +1,108 @@
+﻿@page "/studentdata"
+@using WestCoastEducation.Shared
+<PageTitle>WestCoast Education - Studenter</PageTitle>
+@inject HttpClient HttpClient
+<h1>Studenter på WCE</h1>
+
+<p>Hantera studenter</p>
+
+<p>
+    <label for="Fornamn">Förnamn:</label>
+    <input label="Fornamn" @bind="Student.FirstName"/>
+</p>
+
+<p>
+    <label for="Efternamn">Efternamn:</label>
+    <input label="Efternamn" @bind="Student.LastName"/>
+</p>
+<p>
+    <label for="Email">Email:</label>
+    <input label="Email" @bind="Student.Email"/>
+</p>
+<p>
+    <label for="Telefonnr">Telefonnummer:</label>
+    <input label="Telefonnr" @bind="Student.PhoneNr"/>
+</p>
+<p>
+    <label for="Gatunamn">Gatunamn:</label>
+    <input label="Gatunamn" @bind="Student.Street"/>
+</p>
+<p>
+    <label for="Postnummer">Postnummer:</label>
+    <input label="Postnummer" @bind="Student.PostalCode"/>
+</p>
+<p>
+    <label for="Stad">Stad:</label>
+    <input label="Stad" @bind="Student.City"/>
+</p>
+<button class="btn btn-primary" @onclick="AddStudentAsync">Lägg till student</button>
+
+<p>Studenter på skolan:</p>
+
+@if (_students == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Förnamn</th>
+            <th>Efternamn</th>
+            <th>Email</th>
+            <th>Telenr</th>
+            <th>Gatunamn</th>
+            <th>Postnummer</th>
+            <th>Stad</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var student in _students)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.FirstName</td>
+                <td>@student.LastName</td>
+                <td>@student.Email</td>
+                <td>@student.PhoneNr</td>
+                <td>@student.Street</td>
+                <td>@student.PostalCode</td>
+                <td>@student.City</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+@code {
+    public Student Student { get; set; } = new();
+
+    private ICollection<Student>? _students;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetAllStudentsAsync();
+    }
+
+    private async Task AddStudentAsync()
+    {
+        var newStudent = Student.CopyStudent(Student);
+
+        var result = await HttpClient.PostAsJsonAsync("api/Student", newStudent);
+
+        await GetAllStudentsAsync();
+    }
+
+    private async Task GetAllStudentsAsync()
+    {
+        var result = await HttpClient.GetFromJsonAsync<ICollection<Student>>("api/Student");
+        _students = result;
+    }
+
+    private async Task DeleteStudentAsync(int studentId)
+    {
+        var result = await HttpClient.DeleteAsync($"api/Student/{studentId}");
+        await GetAllStudentsAsync();
+    }
+}

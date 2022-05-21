@@ -1,6 +1,102 @@
 ﻿@page "/coursesdata"
-<h3>CoursesData</h3>
+@using WestCoastEducation.Shared
+<PageTitle>WestCoast Education - Kurser</PageTitle>
+@inject HttpClient HttpClient
+<h1>Kurser på WCE</h1>
 
+<p>Lägg till kurs</p>
+
+<p>
+    <label for="Kursnummer">Kursnummer:</label>
+    <input label="Kursnummer" @bind="Course.CourseNumber"/>
+</p>
+
+<p>
+    <label for="Kursnamn">Kursnamn:</label>
+    <input label="Kursnamn" @bind="Course.CourseName"/>
+</p>
+<p>
+    <label for="Kursbeskrivning">Kursbeskrivning:</label>
+    <input label="Kursbeskrivning" @bind="Course.CourseDescription"/>
+</p>
+<p>
+    <label for="Kurslangd">Kurslängd (timmar):</label>
+    <input label="Kurslangd" @bind="Course.CourseLength"/>
+</p>
+<p>
+    <label for="Kursniva">Kursnivå:</label>
+    <input label="Kursniva" @bind="Course.CourseLevel"/>
+</p>
+<p>
+    <label for="Kursstatus">Kursstatus:</label>
+    <input label="Kursstatus" @bind="Course.CourseStatus"/>
+</p>
+<button class="btn btn-primary" @onclick="AddCourseAsync">Lägg till kurs</button>
+
+<p>Tillgängliga kurser:</p>
+
+@if (_courses == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Kursnummer</th>
+            <th>Kursnamn</th>
+            <th>Kursbeskrivning</th>
+            <th>Kurslängd</th>
+            <th>Kursnivå</th>
+            <th>Kursstatus</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var course in _courses)
+        {
+            <tr>
+                <td>@course.Id</td>
+                <td>@course.CourseNumber</td>
+                <td>@course.CourseName</td>
+                <td>@course.CourseDescription</td>
+                <td>@course.CourseLength</td>
+                <td>@course.CourseLevel</td>
+                <td>@course.CourseStatus</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
 @code {
+    public Course Course { get; set; } = new();
 
+    private ICollection<Course>? _courses;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetAllCoursesAsync();
+    }
+
+    private async Task AddCourseAsync()
+    {
+        var newCourse = Course.CopyCourse(Course);
+
+        var result = await HttpClient.PostAsJsonAsync("api/Course", newCourse);
+
+        await GetAllCoursesAsync();
+    }
+
+    private async Task GetAllCoursesAsync()
+    {
+        var result = await HttpClient.GetFromJsonAsync<ICollection<Course>>("api/Course");
+        _courses = result;
+    }
+
+    private async Task DeleteHeroAsync(int heroId)
+    {
+        var result = await HttpClient.DeleteAsync($"api/Hero/{heroId}");
+        await GetAllCoursesAsync();
+    }
 }

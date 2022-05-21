@@ -20,7 +20,7 @@ namespace WestCoastEducation.Server.Controllers
             public async Task<ActionResult<ICollection<Course>>> GetCourses()
             {
                 var courses = await _courseRepository.GetAllCoursesAsync();
-                return Ok();
+                return Ok(courses);
             }
 
             [HttpPost]
