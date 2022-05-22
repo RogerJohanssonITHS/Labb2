@@ -13,11 +13,11 @@
 
 <p>
     <label for="Kursnamn">Kursnamn:</label>
-    <input label="Kursnamn" @bind="Course.CourseName"/>
+    <input type="text" label="Kursnamn" @bind="Course.CourseName"/>
 </p>
 <p>
     <label for="Kursbeskrivning">Kursbeskrivning:</label>
-    <input label="Kursbeskrivning" @bind="Course.CourseDescription"/>
+    <textarea label="Kursbeskrivning" @bind="Course.CourseDescription"/>
 </p>
 <p>
     <label for="Kurslangd">Kurslängd (timmar):</label>
@@ -29,9 +29,10 @@
 </p>
 <p>
     <label for="Kursstatus">Kursstatus:</label>
-    <input label="Kursstatus" @bind="Course.CourseStatus"/>
+    <input type="checkbox" label="Kursstatus" @bind="Course.CourseStatus"/>
 </p>
 <button class="btn btn-primary" @onclick="AddCourseAsync">Lägg till kurs</button>
+<button class="btn btn-primary" @onclick="() => GetCourseAsync(Course.CourseNumber)">Hämta kurs med kursnummer</button>
 
 <p>Tillgängliga kurser:</p>
 
@@ -64,15 +65,31 @@ else
                 <td>@course.CourseLength</td>
                 <td>@course.CourseLevel</td>
                 <td>@course.CourseStatus</td>
+                <td><button class="btn-xs btn-danger" @onclick="() => DeleteCourseAsync(course.Id)">X</button></td>
             </tr>
+            
         }
         </tbody>
     </table>
+}
+@if (_course != null)
+{
+    Course.CourseNumber = _course.CourseNumber;
+    Course.CourseName = _course.CourseName;
+    Course.CourseDescription = _course.CourseDescription;
+    Course.CourseLength = _course.CourseLength;
+    Course.CourseLevel = _course.CourseLevel;
+    Course.CourseStatus = _course.CourseStatus;
+    _course = null;
+    InvokeAsync(() =>
+    { StateHasChanged();
+    });
 }
 @code {
     public Course Course { get; set; } = new();
 
     private ICollection<Course>? _courses;
+    private Course? _course;
 
     protected override async Task OnInitializedAsync()
     {
@@ -94,9 +111,15 @@ else
         _courses = result;
     }
 
-    private async Task DeleteHeroAsync(int heroId)
+    private async Task GetCourseAsync(int courseNumber)
     {
-        var result = await HttpClient.DeleteAsync($"api/Hero/{heroId}");
+        var result = await HttpClient.GetFromJsonAsync<Course>($"api/Course/{courseNumber}");
+        _course = result;
+    }
+
+    private async Task DeleteCourseAsync(int courseId)
+    {
+        var result = await HttpClient.DeleteAsync($"api/Course/{courseId}");
         await GetAllCoursesAsync();
     }
 }

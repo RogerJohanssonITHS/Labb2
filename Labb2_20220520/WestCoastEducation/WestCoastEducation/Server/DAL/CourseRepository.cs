@@ -32,10 +32,19 @@ namespace WestCoastEducation.Server.DAL
             return await courses.ToListAsync();
         }
 
+
+
+        public async Task<Course> GetCourseNumberAsync(int courseNumber)
+        {
+            var course = _courseContext.Courses.FirstOrDefault(c => c.CourseNumber == courseNumber);
+            return course;
+        }
+
         public Course? GetCourse(int id)
         {
             return _courseContext.Courses.FirstOrDefault(c => c.Id == id);
         }
+
         public bool DeleteCourse(int id)
         {
             var courseToDelete = GetCourse(id);

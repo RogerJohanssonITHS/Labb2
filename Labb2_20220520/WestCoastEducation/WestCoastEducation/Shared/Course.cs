@@ -20,10 +20,10 @@ namespace WestCoastEducation.Shared
         }
         public int Id { get; set; }
         public int CourseNumber { get; set; }
-        public string CourseName { get; set; }
-        public string CourseDescription { get; set; }
+        public string CourseName { get; set; } = string.Empty;
+        public string CourseDescription { get; set; } = string.Empty;
         public int CourseLength { get; set; }
-        public string CourseLevel { get; set; }
+        public string CourseLevel { get; set; } = string.Empty;
         public bool CourseStatus { get; set; }
 
         [System.Text.Json.Serialization.JsonIgnore]
