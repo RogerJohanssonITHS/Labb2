@@ -28,7 +28,6 @@ namespace WestCoastEducation.Server.DAL
 
         public async Task<bool> PatchStudentAsync(Student student)
         {
-            //var studentToPatch = GetStudent(student.Id);
             if (student is null)
             {
                 return false;

@@ -26,6 +26,18 @@ namespace WestCoastEducation.Server.DAL
             return true;
         }
 
+        public async Task<bool> PatchCourseAsync(Course course)
+        {
+            if (course is null)
+            {
+                return false;
+            }
+
+            _courseContext.Courses.Update(course);
+            _courseContext.SaveChanges();
+            return true;
+        }
+
         public async Task<ICollection<Course>> GetAllCoursesAsync()
         {
             var courses = _courseContext.Courses;

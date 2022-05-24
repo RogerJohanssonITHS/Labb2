@@ -33,6 +33,7 @@
 </p>
 <button class="btn btn-primary" @onclick="AddCourseAsync">Lägg till kurs</button>
 <button class="btn btn-primary" @onclick="() => GetCourseAsync(Course.CourseNumber)">Hämta kurs med kursnummer</button>
+<button class="btn btn-primary" @onclick="PatchCourseAsync">Uppdatera kurs</button>
 
 <p>Tillgängliga kurser:</p>
 
@@ -64,8 +65,8 @@ else
                 <td>@course.CourseDescription</td>
                 <td>@course.CourseLength</td>
                 <td>@course.CourseLevel</td>
-                <td>@course.CourseStatus</td>
-                <td><button class="btn-xs btn-danger" @onclick="() => DeleteCourseAsync(course.Id)">X</button></td>
+                <td>@(course.CourseStatus ? "Aktiv":"Inaktiv")</td>
+               <td><button class="btn-xs btn-danger" @onclick="() => DeleteCourseAsync(course.Id)"><span class="oi oi-trash"></span></button></td>
             </tr>
             
         }
@@ -74,6 +75,7 @@ else
 }
 @if (_course != null)
 {
+    Course.Id = _course.Id;
     Course.CourseNumber = _course.CourseNumber;
     Course.CourseName = _course.CourseName;
     Course.CourseDescription = _course.CourseDescription;
@@ -101,6 +103,16 @@ else
         var newCourse = Course.CopyCourse(Course);
 
         var result = await HttpClient.PostAsJsonAsync("api/Course", newCourse);
+
+        await GetAllCoursesAsync();
+    }
+
+        private async Task PatchCourseAsync()
+    {
+        var patchCourse = Course.CopyCourse(Course);
+        int id = patchCourse.Id;
+
+        var result = await HttpClient.PutAsJsonAsync($"api/Course/{id}", patchCourse);
 
         await GetAllCoursesAsync();
     }

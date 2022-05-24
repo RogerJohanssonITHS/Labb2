@@ -8,16 +8,11 @@ namespace WestCoastEducation.Shared
 {
     public class Course
     {
-        public Course(int courseNumber, string courseName, string courseDescription, int courseLength, string courseLevel, bool courseStatus)
+        public Course()
         {
-            CourseNumber = courseNumber;
-            CourseName = courseName;
-            CourseDescription = courseDescription;
-            CourseLength = courseLength;
-            CourseLevel = courseLevel;
-            CourseStatus = courseStatus;
-
+            Students = new HashSet<Student>();
         }
+
         public int Id { get; set; }
         public int CourseNumber { get; set; }
         public string CourseName { get; set; } = string.Empty;
@@ -29,14 +24,12 @@ namespace WestCoastEducation.Shared
         [System.Text.Json.Serialization.JsonIgnore]
         public virtual ICollection<Student> Students { get; set; }
 
-        public Course()
-        {
-            Students = new HashSet<Student>();
-        }
+
 
         public static Course CopyCourse(Course course)
         {
             var courseCopy = new Course();
+            courseCopy.Id = course.Id;
             courseCopy.CourseNumber = course.CourseNumber;
             courseCopy.CourseName = course.CourseName;
             courseCopy.CourseDescription = course.CourseDescription;
