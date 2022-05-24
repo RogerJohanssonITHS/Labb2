@@ -22,10 +22,25 @@ namespace WestCoastEducation.Server.Controllers
             return Ok(students);
         }
 
+        [HttpGet("{email}")]
+        public async Task<ActionResult<ICollection<Student>>> GetStudentEmail(string email)
+        {
+            var student = await _studentRepository.GetStudentEmailAsync(email);
+            return Ok(student);
+        }
+
         [HttpPost]
         public async Task<IActionResult> PostStudent(Student student)
         {
             var result = await _studentRepository.CreateStudentAsync(student);
+            return result ? Ok() : BadRequest();
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PatchStudent(int id, Student student)
+        {
+            //student.Id = id;
+            var result = await _studentRepository.PatchStudentAsync(student);
             return result ? Ok() : BadRequest();
         }
 

@@ -26,10 +26,29 @@ namespace WestCoastEducation.Server.DAL
             return true;
         }
 
+        public async Task<bool> PatchStudentAsync(Student student)
+        {
+            //var studentToPatch = GetStudent(student.Id);
+            if (student is null)
+            {
+                return false;
+            }
+
+            _studentContext.Students.Update(student);
+            _studentContext.SaveChanges();
+            return true;
+        }
+
         public async Task<ICollection<Student>> GetAllStudentsAsync()
         {
             var students = _studentContext.Students;
             return await students.ToListAsync();
+        }
+
+        public async Task<Student> GetStudentEmailAsync(string email)
+        {
+            var student = _studentContext.Students.FirstOrDefault(s => s.Email == email);
+            return student;
         }
 
         public Student? GetStudent(int id)

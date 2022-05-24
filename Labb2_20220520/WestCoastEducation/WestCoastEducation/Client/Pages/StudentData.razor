@@ -36,12 +36,14 @@
     <input label="Stad" @bind="Student.City"/>
 </p>
 <button class="btn btn-primary" @onclick="AddStudentAsync">Lägg till student</button>
+<button class="btn btn-primary" @onclick="()=>GetStudentEmailAsync(Student.Email)">Hämta student via email</button>
+<button class="btn btn-primary" @onclick="PatchStudentAsync">Uppdatera student</button>
 
 <p>Studenter på skolan:</p>
 
 @if (_students == null)
 {
-    <p><em>Loading...</em></p>
+    <p><em>Hämtar studenter...</em></p>
 }
 else
 {
@@ -75,10 +77,26 @@ else
         </tbody>
     </table>
 }
+@if (_student != null)
+{
+    Student.Id = _student.Id;
+    Student.FirstName = _student.FirstName;
+    Student.LastName = _student.LastName;
+    Student.Email = _student.Email;
+    Student.PhoneNr = _student.PhoneNr;
+    Student.Street = _student.Street;
+    Student.PostalCode = _student.PostalCode;
+    Student.City = _student.City;
+    _student = null;
+    InvokeAsync(() =>
+    { StateHasChanged();
+    });
+}
 @code {
     public Student Student { get; set; } = new();
 
     private ICollection<Student>? _students;
+    private Student? _student;
 
     protected override async Task OnInitializedAsync()
     {
@@ -94,11 +112,29 @@ else
         await GetAllStudentsAsync();
     }
 
+    private async Task PatchStudentAsync()
+    {
+        var patchStudent = Student.CopyStudent(Student);
+        int id = patchStudent.Id;
+
+        var result = await HttpClient.PutAsJsonAsync($"api/Student/{id}", patchStudent);
+
+        await GetAllStudentsAsync();
+    }
+
     private async Task GetAllStudentsAsync()
     {
         var result = await HttpClient.GetFromJsonAsync<ICollection<Student>>("api/Student");
         _students = result;
     }
+
+    private async Task GetStudentEmailAsync(string email)
+    {
+        var result = await HttpClient.GetFromJsonAsync<Student>($"api/Student/{email}");
+       _student = result;
+    }
+
+
 
     private async Task DeleteStudentAsync(int studentId)
     {

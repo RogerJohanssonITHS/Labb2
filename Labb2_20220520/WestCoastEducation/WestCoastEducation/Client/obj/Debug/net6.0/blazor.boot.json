@@ -196,15 +196,15 @@
       "mscorlib.dll": "sha256-ghlJNtzzYlKIliGPuf0A0Yu6dmLycSx3F9uyeddFb\/g=",
       "netstandard.dll": "sha256-qpOz\/RBwhlIYfaE2GDEmjiproxkvSf2b9GeqHxvH+lg=",
       "System.Private.CoreLib.dll": "sha256-sfzSZ3YKC2rpF77TVOKLuPgQag93QXr9U4AUc9d\/LKA=",
-      "WestCoastEducation.Shared.dll": "sha256-MKp9kIUzhsKz5AZ7JTflV+YGTLfbFM9O8X2VCslR\/Ek=",
-      "WestCoastEducation.Client.dll": "sha256-0PMyNgh5ehIkcN6HwnDrENy0unB5LypEGP8HdreYeC0="
+      "WestCoastEducation.Shared.dll": "sha256-yb9kV4dgRig5O4fHDQBZq3d+FqP90AYU\/bum\/o1ReCg=",
+      "WestCoastEducation.Client.dll": "sha256-snUKE6QoNTkooNmubHEg99w52cSzAGI3BUY1qs93NOQ="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "WestCoastEducation.Shared.pdb": "sha256-DdJdsH+MGOIJ0RCzx9GERZmG8he3vffDoHg\/1vDBriM=",
-      "WestCoastEducation.Client.pdb": "sha256-eJVxm5WTMR7b0JqlzfefgN\/nbrc2RvaVpkSXO6qw6xQ="
+      "WestCoastEducation.Shared.pdb": "sha256-W5Ds1\/OGAJOVSXTt5k3\/29z+Htfn186aIg2IfZF\/tnw=",
+      "WestCoastEducation.Client.pdb": "sha256-LazVBJMDPRiyoG8Nn3QO5+r8nlGyxaUhsakcZONzBf8="
     },
     "runtime": {
       "dotnet.6.0.5.0dw4u8btzt.js": "sha256-783uOt0jgblQfP6Yz5TJeuW2xxtl6UHZQPngZtCz79U=",

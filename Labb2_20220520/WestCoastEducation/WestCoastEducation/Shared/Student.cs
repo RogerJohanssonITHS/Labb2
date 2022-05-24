@@ -8,15 +8,8 @@ namespace WestCoastEducation.Shared
 {
     public class Student
     {
-        public Student(string firstName, string lastName, string email, string phoneNr, string street, string postalCode, string city)
+        public Student()
         {
-            FirstName = firstName;
-            LastName = lastName;
-            Email = email;
-            PhoneNr = phoneNr;
-            Street = street;
-            PostalCode = postalCode;
-            City = city;
             Courses = new HashSet<Course>();
         }
         public int Id { get; set; }
@@ -31,13 +24,14 @@ namespace WestCoastEducation.Shared
         [System.Text.Json.Serialization.JsonIgnore]
         public virtual ICollection<Course> Courses { get; set; }
 
-        public Student()
-        {
-            Courses = new HashSet<Course>();
-        }
+        //public Student()
+        //{
+        //    Courses = new HashSet<Course>();
+        //}
         public static Student CopyStudent(Student student)
         {
             var studentCopy = new Student();
+            studentCopy.Id = student.Id;
             studentCopy.FirstName = student.FirstName;
             studentCopy.LastName = student.LastName;
             studentCopy.Email = student.Email;

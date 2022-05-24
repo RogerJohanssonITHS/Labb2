@@ -47,6 +47,6 @@ namespace WestCoastEducation.Server.Controllers
             _courseRepository.DeleteCourse(id);
             return Ok();
         }
-        }
     }
+}
 
