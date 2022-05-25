@@ -26,7 +26,7 @@ namespace WestCoastEducation.Server.DAL
             return true;
         }
 
-        public async Task<bool> PatchStudentAsync(Student student)
+        public async Task<bool> PutStudentAsync(Student student)
         {
             if (student is null)
             {
@@ -65,6 +65,16 @@ namespace WestCoastEducation.Server.DAL
             _studentContext.Students.Remove(studentToDelete);
             _studentContext.SaveChanges();
             return true;
+        }
+
+        //for many to many
+        public ICollection<Course>? GetUserCourses(int id)
+        {
+            var userCourses = _studentContext.Students.Include(s => s.Courses).FirstOrDefault(s => s.Id == id);
+            if (userCourses is null)
+                return null;
+
+            return userCourses.Courses;
         }
     }
 }

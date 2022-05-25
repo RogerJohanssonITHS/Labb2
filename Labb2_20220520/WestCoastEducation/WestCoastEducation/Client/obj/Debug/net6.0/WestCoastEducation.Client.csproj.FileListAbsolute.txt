@@ -1,3 +1,9 @@
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\obj\Debug\net6.0\WestCoastEducation.Client.csproj.AssemblyReference.cache
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\obj\Debug\net6.0\WestCoastEducation.Client.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\obj\Debug\net6.0\WestCoastEducation.Client.AssemblyInfoInputs.cache
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\obj\Debug\net6.0\WestCoastEducation.Client.AssemblyInfo.cs
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\obj\Debug\net6.0\WestCoastEducation.Client.csproj.CoreCompileInputs.cache
+C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\obj\Debug\net6.0\WestCoastEducation.Client.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\bin\Debug\net6.0\wwwroot\_framework\blazor.boot.json
 C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\bin\Debug\net6.0\wwwroot\_framework\blazor.webassembly.js
 C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\bin\Debug\net6.0\wwwroot\_framework\dotnet.6.0.5.0dw4u8btzt.js
@@ -602,12 +608,6 @@ C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2
 C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\bin\Debug\net6.0\icudt_no_CJK.dat
 C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\bin\Debug\net6.0\WestCoastEducation.Shared.dll
 C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\bin\Debug\net6.0\WestCoastEducation.Shared.pdb
-C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\obj\Debug\net6.0\WestCoastEducation.Client.csproj.AssemblyReference.cache
-C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\obj\Debug\net6.0\WestCoastEducation.Client.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\obj\Debug\net6.0\WestCoastEducation.Client.AssemblyInfoInputs.cache
-C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\obj\Debug\net6.0\WestCoastEducation.Client.AssemblyInfo.cs
-C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\obj\Debug\net6.0\WestCoastEducation.Client.csproj.CoreCompileInputs.cache
-C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\obj\Debug\net6.0\WestCoastEducation.Client.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\obj\Debug\net6.0\build-gz\XanEQuMJ.gz
 C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\obj\Debug\net6.0\build-gz\EbHPhD7v.gz
 C:\Users\linda\OneDrive\Skrivbord\current projects\ITHS\Webkurs_VT22\Labb2\Labb2_20220520\WestCoastEducation\WestCoastEducation\Client\obj\Debug\net6.0\build-gz\wMY4uG9K.gz

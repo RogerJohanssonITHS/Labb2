@@ -37,7 +37,16 @@
 </p>
 <button class="btn btn-primary" @onclick="AddStudentAsync">Lägg till student</button>
 <button class="btn btn-primary" @onclick="()=>GetStudentEmailAsync(Student.Email)">Hämta student via email</button>
-<button class="btn btn-primary" @onclick="PatchStudentAsync">Uppdatera student</button>
+<button class="btn btn-primary" @onclick="PutStudentAsync">Uppdatera student</button>
+
+<p>
+    <label for="StudentId">StudentId:</label>
+    <input label="StudentId" @bind="Student.Id"/>
+    <label for="KursId">KursID:</label>
+    <input label="KursId" @bind="Course.Id"/>
+</p>
+<button class="btn btn-primary" @onclick="AddStudentToCourseAsync">Anmäl student till kurs</button>
+
 
 <p>Studenter på skolan:</p>
 
@@ -76,6 +85,23 @@ else
         }
         </tbody>
     </table>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Kursnamn</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var course in _courses)
+        {
+            <tr>
+                <td>@course.Id</td>
+                <td>@course.CourseName</td>
+            </tr>
+        }
+        </tbody>
+    </table>
 }
 @if (_student != null)
 {
@@ -92,15 +118,24 @@ else
     { StateHasChanged();
     });
 }
+
+
+
 @code {
     public Student Student { get; set; } = new();
 
     private ICollection<Student>? _students;
     private Student? _student;
 
+    public Course Course { get; set; } = new();
+
+    private ICollection<Course>? _courses;
+    private Course? _course;
+
     protected override async Task OnInitializedAsync()
     {
         await GetAllStudentsAsync();
+        await GetAllCoursesAsync();
     }
 
     private async Task AddStudentAsync()
@@ -112,7 +147,7 @@ else
         await GetAllStudentsAsync();
     }
 
-    private async Task PatchStudentAsync()
+    private async Task PutStudentAsync()
     {
         var patchStudent = Student.CopyStudent(Student);
         int id = patchStudent.Id;
@@ -139,6 +174,23 @@ else
     private async Task DeleteStudentAsync(int studentId)
     {
         var result = await HttpClient.DeleteAsync($"api/Student/{studentId}");
+        await GetAllStudentsAsync();
+    }
+
+    
+    private async Task GetAllCoursesAsync()
+    {
+        var result = await HttpClient.GetFromJsonAsync<ICollection<Course>>("api/Course");
+        _courses = result;
+    }
+
+    private async Task AddStudentToCourseAsync()
+    {
+        var patchStudent = Student.CopyStudent(Student);
+        int id = patchStudent.Id;
+
+        var result = await HttpClient.PutAsJsonAsync($"api/Student/{id}", patchStudent);
+
         await GetAllStudentsAsync();
     }
 }

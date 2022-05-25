@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace WestCoastEducation.Shared
@@ -21,7 +22,7 @@ namespace WestCoastEducation.Shared
         public string CourseLevel { get; set; } = string.Empty;
         public bool CourseStatus { get; set; }
 
-        [System.Text.Json.Serialization.JsonIgnore]
+        [JsonIgnore]
         public virtual ICollection<Student> Students { get; set; }
 
 

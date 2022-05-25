@@ -69,5 +69,35 @@ namespace WestCoastEducation.Server.DAL
             _courseContext.SaveChanges();
             return true;
         }
+
+        //for many to many
+        public ICollection<Student>? GetCourseStudents(int id)
+        {
+            var courseStudents = _courseContext.Courses.Include(c => c.Students).FirstOrDefault(c => c.Id == id);
+            if (courseStudents is null)
+                return null;
+
+            return courseStudents.Students;
+        }
+
+        public void Create(Course course)
+        {
+            _courseContext.Courses.Add(course);
+        }
+
+        public bool UpdateCourse(int id, Course course)
+        {
+            var existingCourse = _courseContext.Courses.FirstOrDefault(c => c.Id == id);
+            if (existingCourse is null)
+            {
+                return false;
+            }
+
+            course.Id = existingCourse.Id;
+
+            existingCourse = course;
+
+            return true;
+        }
     }
 }

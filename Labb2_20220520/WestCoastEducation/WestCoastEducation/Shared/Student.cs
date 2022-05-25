@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace WestCoastEducation.Shared
@@ -22,13 +23,10 @@ namespace WestCoastEducation.Shared
         public string PostalCode { get; set; }
         public string City { get; set; }
 
-        [System.Text.Json.Serialization.JsonIgnore]
+        [JsonIgnore]
         public virtual ICollection<Course> Courses { get; set; }
 
-        //public Student()
-        //{
-        //    Courses = new HashSet<Course>();
-        //}
+
         public static Student CopyStudent(Student student)
         {
             var studentCopy = new Student();

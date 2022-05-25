@@ -29,6 +29,14 @@ namespace WestCoastEducation.Server.Controllers
             return Ok(student);
         }
 
+        [HttpGet("{id}/courses")]
+        public IActionResult GetUserGroups(int id)
+        {
+            var user = _studentRepository.GetUserCourses(id);
+
+            return user is not null ? Ok(user) : NotFound();
+        }
+
         [HttpPost]
         public async Task<IActionResult> PostStudent(Student student)
         {
@@ -37,10 +45,10 @@ namespace WestCoastEducation.Server.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PatchStudent(int id, Student student)
+        public async Task<IActionResult> PutStudent(int id, Student student)
         {
             //student.Id = id;
-            var result = await _studentRepository.PatchStudentAsync(student);
+            var result = await _studentRepository.PutStudentAsync(student);
             return result ? Ok() : BadRequest();
         }
 
