@@ -40,12 +40,12 @@
 <button class="btn btn-primary" @onclick="PutStudentAsync">Uppdatera student</button>
 
 <p>
-    <label for="StudentId">StudentId:</label>
-    <input label="StudentId" @bind="Student.Id"/>
-    <label for="KursId">KursID:</label>
-    <input label="KursId" @bind="Course.Id"/>
+@*    <label for="StudentId">StudentId:</label>
+    <input label="StudentId" @bind="Student.Id"/>*@
+    <label for="KursId">Kursnummer:</label>
+    <input label="KursId" @bind="Course.CourseNumber"/>
 </p>
-<button class="btn btn-primary" @onclick="AddStudentToCourseAsync">Anmäl student till kurs</button>
+<button class="btn btn-primary" @onclick="()=>AddStudentToCourseAsync(Course.CourseNumber)">Anmäl student till kurs</button>
 
 
 <p>Studenter på skolan:</p>
@@ -88,7 +88,7 @@ else
     <table class="table">
         <thead>
         <tr>
-            <th>Id</th>
+            <th>Kursnummer</th>
             <th>Kursnamn</th>
         </tr>
         </thead>
@@ -96,7 +96,7 @@ else
         @foreach (var course in _courses)
         {
             <tr>
-                <td>@course.Id</td>
+                <td>@course.CourseNumber</td>
                 <td>@course.CourseName</td>
             </tr>
         }
@@ -166,7 +166,7 @@ else
     private async Task GetStudentEmailAsync(string email)
     {
         var result = await HttpClient.GetFromJsonAsync<Student>($"api/Student/{email}");
-       _student = result;
+        _student = result;
     }
 
 
@@ -177,19 +177,22 @@ else
         await GetAllStudentsAsync();
     }
 
-    
+
     private async Task GetAllCoursesAsync()
     {
         var result = await HttpClient.GetFromJsonAsync<ICollection<Course>>("api/Course");
         _courses = result;
     }
 
-    private async Task AddStudentToCourseAsync()
+    //for many-to-many
+    private async Task AddStudentToCourseAsync(int courseNumber)
     {
-        var patchStudent = Student.CopyStudent(Student);
-        int id = patchStudent.Id;
+        var student = Student.CopyStudent(Student);
+        int id = student.Id;
 
-        var result = await HttpClient.PutAsJsonAsync($"api/Student/{id}", patchStudent);
+        Course courseToAdd = Course.CopyCourse(Course);
+
+        var result = await HttpClient.PostAsJsonAsync($"api/Student/{id}/courses", courseToAdd);
 
         await GetAllStudentsAsync();
     }

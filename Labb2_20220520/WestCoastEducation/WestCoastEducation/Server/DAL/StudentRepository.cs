@@ -68,13 +68,32 @@ namespace WestCoastEducation.Server.DAL
         }
 
         //for many to many
-        public ICollection<Course>? GetUserCourses(int id)
+        public ICollection<Course>? GetStudentCourses(int id)
         {
-            var userCourses = _studentContext.Students.Include(s => s.Courses).FirstOrDefault(s => s.Id == id);
-            if (userCourses is null)
+            var studentCourses = _studentContext.Students.Include(s => s.Courses).FirstOrDefault(s => s.Id == id);
+            if (studentCourses is null)
                 return null;
 
-            return userCourses.Courses;
+            return studentCourses.Courses;
+        }
+
+        public async Task<bool> AddStudentToCourseAsync(int studentId, Course ? course)
+        {
+            var studentForCourse = _studentContext.Students.FirstOrDefault(s => s.Id == studentId);
+            if (studentForCourse is null)
+            {
+                return false;
+            }
+
+            var courseForStudent = _studentContext.Courses.FirstOrDefault(c => c.CourseNumber == course.CourseNumber);
+            if (courseForStudent is null)
+            {
+                return false;
+            }
+
+            courseForStudent.Students.Add(studentForCourse);
+            await _studentContext.SaveChangesAsync();
+            return true;
         }
     }
 }

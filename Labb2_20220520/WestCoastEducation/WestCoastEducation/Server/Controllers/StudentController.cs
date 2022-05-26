@@ -29,13 +29,7 @@ namespace WestCoastEducation.Server.Controllers
             return Ok(student);
         }
 
-        [HttpGet("{id}/courses")]
-        public IActionResult GetUserGroups(int id)
-        {
-            var user = _studentRepository.GetUserCourses(id);
 
-            return user is not null ? Ok(user) : NotFound();
-        }
 
         [HttpPost]
         public async Task<IActionResult> PostStudent(Student student)
@@ -57,6 +51,23 @@ namespace WestCoastEducation.Server.Controllers
         {
             _studentRepository.DeleteStudent(id);
             return Ok();
+        }
+
+        //for many-to-many
+        //[HttpGet("{id}/courses")]
+        //public IActionResult GetStudentCourses(int id)
+        //{
+        //    var user = _studentRepository.GetStudentCourses(id);
+
+        //    return user is not null ? Ok(user) : NotFound();
+        //}
+
+        [HttpPost("{id}/courses")]
+        public async Task<IActionResult> AddStudentToCourse(int id, Course? course)
+        {
+            var result = await _studentRepository.AddStudentToCourseAsync(id, course);
+
+            return result ? Ok() : BadRequest();
         }
     }
 }
