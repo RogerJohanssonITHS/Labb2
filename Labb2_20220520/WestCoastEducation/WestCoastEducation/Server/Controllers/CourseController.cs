@@ -41,10 +41,10 @@ namespace WestCoastEducation.Server.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PatchCourse(int id, Course course)
+        public async Task<IActionResult> PutCourse(int id, Course course)
         {
             //student.Id = id;
-            var result = await _courseRepository.PatchCourseAsync(course);
+            var result = await _courseRepository.PutCourseAsync(course);
             return result ? Ok() : BadRequest();
         }
 

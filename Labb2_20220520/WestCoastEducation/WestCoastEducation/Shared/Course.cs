@@ -25,20 +25,6 @@ namespace WestCoastEducation.Shared
         [JsonIgnore]
         public virtual ICollection<Student> Students { get; set; }
 
-
-
-        public static Course CopyCourse(Course course)
-        {
-            var courseCopy = new Course();
-            courseCopy.Id = course.Id;
-            courseCopy.CourseNumber = course.CourseNumber;
-            courseCopy.CourseName = course.CourseName;
-            courseCopy.CourseDescription = course.CourseDescription;
-            courseCopy.CourseLength = course.CourseLength;
-            courseCopy.CourseLevel = course.CourseLevel;
-            courseCopy.CourseStatus = course.CourseStatus;
-            return courseCopy;
-        }
     }
 }
 

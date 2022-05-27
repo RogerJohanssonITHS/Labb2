@@ -100,19 +100,19 @@ else
 
     private async Task AddCourseAsync()
     {
-        var newCourse = Course.CopyCourse(Course);
+        //var newCourse = Course.CopyCourse(Course);
 
-        var result = await HttpClient.PostAsJsonAsync("api/Course", newCourse);
+        var result = await HttpClient.PostAsJsonAsync("api/Course", Course);
 
         await GetAllCoursesAsync();
     }
 
         private async Task PatchCourseAsync()
     {
-        var patchCourse = Course.CopyCourse(Course);
-        int id = patchCourse.Id;
+        //var patchCourse = Course.CopyCourse(Course);
+        int id = Course.Id;
 
-        var result = await HttpClient.PutAsJsonAsync($"api/Course/{id}", patchCourse);
+        var result = await HttpClient.PutAsJsonAsync($"api/Course/{id}", Course);
 
         await GetAllCoursesAsync();
     }

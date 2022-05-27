@@ -39,7 +39,7 @@ namespace WestCoastEducation.Server.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutStudent(int id, Student student)
+        public async Task<IActionResult> PutStudent(Student student)
         {
             //student.Id = id;
             var result = await _studentRepository.PutStudentAsync(student);
@@ -47,20 +47,20 @@ namespace WestCoastEducation.Server.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteStudentAsync(int id)
+        public async Task<IActionResult> DeleteStudent(int id)
         {
             _studentRepository.DeleteStudent(id);
             return Ok();
         }
 
         //for many-to-many
-        //[HttpGet("{id}/courses")]
-        //public IActionResult GetStudentCourses(int id)
-        //{
-        //    var user = _studentRepository.GetStudentCourses(id);
+        [HttpGet("{id}/courses")]
+        public IActionResult GetStudentCourses(int id)
+        {
+            var studentCourses = _studentRepository.GetStudentCoursesAsync(id);
 
-        //    return user is not null ? Ok(user) : NotFound();
-        //}
+            return studentCourses is not null ? Ok(studentCourses) : NotFound();
+        }
 
         [HttpPost("{id}/courses")]
         public async Task<IActionResult> AddStudentToCourse(int id, Course? course)

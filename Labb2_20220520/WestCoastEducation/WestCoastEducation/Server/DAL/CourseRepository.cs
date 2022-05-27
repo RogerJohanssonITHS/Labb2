@@ -26,7 +26,7 @@ namespace WestCoastEducation.Server.DAL
             return true;
         }
 
-        public async Task<bool> PatchCourseAsync(Course course)
+        public async Task<bool> PutCourseAsync(Course course)
         {
             if (course is null)
             {
