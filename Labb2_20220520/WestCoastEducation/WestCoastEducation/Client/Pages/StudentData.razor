@@ -2,9 +2,8 @@
 @using WestCoastEducation.Shared
 <PageTitle>WestCoast Education - Studenter</PageTitle>
 @inject HttpClient HttpClient
-<h1>Studenter på WCE</h1>
 
-<p>Hantera studenter</p>
+<p>Den här sidan används för att administrera studenter på WestCoast Education.</p>
 
 <p>
     <label for="Fornamn">Förnamn:</label>
@@ -40,17 +39,16 @@
 <button class="btn btn-primary" @onclick="PutStudentAsync">Uppdatera student</button>
 
 <p>
+    <br>
+    <br>
     <label for="KursId">Kursnummer:</label>
     <input label="KursId" @bind="Course.CourseNumber"/>
 </p>
 <button class="btn btn-primary" @onclick="()=>AddStudentToCourseAsync(Course.CourseNumber)">Anmäl student till kurs</button>
 
-<p>
-    Hämta kurser
-</p>
 <button class="btn btn-primary" @onclick="()=>GetStudentCourses(Student.Id)">Hämta studentens kurser</button>
 
-<p>Studenter på skolan:</p>
+
 
 @if (_students == null)
 {
@@ -58,7 +56,30 @@
 }
 else
 {
-    @*Här visas studenterna på skolan och de kurser man kan välja*@
+        @*Här visas studentens kurser*@
+@if (_studentCourses != null)
+    {
+        <p><br>@Student.FirstName @Student.LastName är anmäld till följande kurser:</p>
+        <table class="table">
+        <thead>
+        <tr>
+            <th>Kursnummer</th>
+            <th>Kursnamn</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var course in _studentCourses)
+        {
+            <tr>
+                <td>@course.CourseNumber</td>
+                <td>@course.CourseName</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    }
+    @*Här visas studenterna på skolan och de kurser man kan välja (aktiva kurser)*@
+    <p><br><br><h4>Studenter på skolan</h4></p>
     <table class="table">
         <thead>
         <tr>
@@ -88,6 +109,8 @@ else
         }
         </tbody>
     </table>
+    <br>
+    <h4>Tillgängliga kurser</h4>
     <table class="table">
         <thead>
         <tr>
@@ -110,28 +133,7 @@ else
         </tbody>
     </table>
 
-    @*Här visas studentens kurser*@
-@if (_studentCourses != null)
-    {
-        <p>@Student.FirstName</p>
-        <table class="table">
-        <thead>
-        <tr>
-            <th>Kursnummer</th>
-            <th>Kursnamn</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var course in _studentCourses)
-        {
-            <tr>
-                <td>@course.CourseNumber</td>
-                <td>@course.CourseName</td>
-            </tr>
-        }
-        </tbody>
-    </table>
-    }
+
     
 }
 @if (_student != null)

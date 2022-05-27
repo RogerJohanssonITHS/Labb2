@@ -2,9 +2,8 @@
 @using WestCoastEducation.Shared
 <PageTitle>WestCoast Education - Kurser</PageTitle>
 @inject HttpClient HttpClient
-<h1>Kurser på WCE</h1>
 
-<p>Lägg till kurs</p>
+<p>Den här sidan används för att administrera kurser på WestCoast Education.</p>
 
 <p>
     <label for="Kursnummer">Kursnummer:</label>
@@ -35,7 +34,7 @@
 <button class="btn btn-primary" @onclick="() => GetCourseAsync(Course.CourseNumber)">Hämta kurs med kursnummer</button>
 <button class="btn btn-primary" @onclick="PatchCourseAsync">Uppdatera kurs</button>
 
-<p>Tillgängliga kurser:</p>
+<p><br><br><h4>Kurser</h4></p>
 
 @if (_courses == null)
 {
@@ -50,7 +49,7 @@ else
             <th>Kursnummer</th>
             <th>Kursnamn</th>
             <th>Kursbeskrivning</th>
-            <th>Kurslängd</th>
+            <th>Kurslängd (timmar)</th>
             <th>Kursnivå</th>
             <th>Kursstatus</th>
         </tr>
