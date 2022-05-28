@@ -23,10 +23,10 @@ namespace WestCoastEducation.Server.Controllers
         }
 
         [HttpGet("{email}")]
-        public async Task<ActionResult<ICollection<Student>>> GetStudentEmail(string email)
+        public async Task<ActionResult<ICollection<Student?>>> GetStudentEmail(string email)
         {
             var student = await _studentRepository.GetStudentEmailAsync(email);
-            return Ok(student);
+            return student is not null ? Ok(student) : NotFound();
         }
 
 
@@ -41,17 +41,10 @@ namespace WestCoastEducation.Server.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutStudent(Student student)
         {
-            //student.Id = id;
             var result = await _studentRepository.PutStudentAsync(student);
             return result ? Ok() : BadRequest();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteStudent(int id)
-        {
-            _studentRepository.DeleteStudent(id);
-            return Ok();
-        }
 
         //for many-to-many
         [HttpGet("{id}/courses")]

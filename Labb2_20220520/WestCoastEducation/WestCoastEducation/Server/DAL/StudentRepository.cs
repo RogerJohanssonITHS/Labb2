@@ -44,7 +44,7 @@ namespace WestCoastEducation.Server.DAL
             return await students.ToListAsync();
         }
 
-        public async Task<Student> GetStudentEmailAsync(string email)
+        public async Task<Student?> GetStudentEmailAsync(string email)
         {
             var student = _studentContext.Students.FirstOrDefault(s => s.Email == email);
             return student;

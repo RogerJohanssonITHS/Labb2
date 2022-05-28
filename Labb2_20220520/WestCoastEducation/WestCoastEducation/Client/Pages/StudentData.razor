@@ -202,14 +202,6 @@ else
     }
 
 
-
-    //private async Task DeleteStudentAsync(int studentId)
-    //{
-    //    var result = await HttpClient.DeleteAsync($"api/Student/{studentId}");
-    //    await GetAllStudentsAsync();
-    //}
-
-
     private async Task GetAllCoursesAsync()
     {
         var result = await HttpClient.GetFromJsonAsync<ICollection<Course>>("api/Course");
