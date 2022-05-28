@@ -32,7 +32,7 @@
 </p>
 <button class="btn btn-primary" @onclick="AddCourseAsync">Lägg till kurs</button>
 <button class="btn btn-primary" @onclick="() => GetCourseAsync(Course.CourseNumber)">Hämta kurs med kursnummer</button>
-<button class="btn btn-primary" @onclick="PatchCourseAsync">Uppdatera kurs</button>
+<button class="btn btn-primary" @onclick="PutCourseAsync">Uppdatera kurs</button>
 
 <p><br><br><h4>Kurser</h4></p>
 
@@ -99,16 +99,13 @@ else
 
     private async Task AddCourseAsync()
     {
-        //var newCourse = Course.CopyCourse(Course);
-
         var result = await HttpClient.PostAsJsonAsync("api/Course", Course);
 
         await GetAllCoursesAsync();
     }
 
-        private async Task PatchCourseAsync()
+        private async Task PutCourseAsync()
     {
-        //var patchCourse = Course.CopyCourse(Course);
         int id = Course.Id;
 
         var result = await HttpClient.PutAsJsonAsync($"api/Course/{id}", Course);
